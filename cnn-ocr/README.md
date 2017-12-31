@@ -6,6 +6,19 @@ This CNN has 4 layers:
 
 input layer -> first convolution layer : 5x5x32 -> first max-pooling layer -> second convolution layer : 5x5x64 -> second max-pooling layer -> third fully-connected layer : 1024 nodes -> output layer
 
+## Getting Started
+
+To start using this neural network, create a directory called "data" and input your datasets for training and testing, images and labels for both. These should be: 
+
+test-images-idx3-ubyte.gz
+test-labels-idx1-ubyte.gz
+train-images-idx3-ubyte.gz
+train-labels-idx1-ubyte.gz
+
+This is the same format used in the MNIST dataset. If your don't have your data in this format, never fear! Just use grayscaler.py (if your image is RGB) and converter.py in ../gen-img-conv-gzip to get your images into that format.
+
+This net can be modified for different data input. To do so, edit the params.py file accordingly. For instance, it's currently set to accept images of 28x28 size, so imageSize is 28 and imageArea is 784 in params.py. If you want a 30x30 image, imageSize -> 30 and imageArea -> 900.
+
 ## Training
 
 ``` $ python mnist_cnn_train.py```
@@ -24,10 +37,6 @@ If you want to see something really cool, enter the command:
 ``` $ tensorboard --logdir="model" ```
 
 once you have a trained model!
-
-## Changing the input
-
-This net can be modified for different data input. To do so, edit the params.py file accordingly.
 
 This is based on work from the Tensorflow "Deep MNIST for Experts" (though I'm far from an expert!) - https://www.tensorflow.org/get_started/mnist/pros
 
