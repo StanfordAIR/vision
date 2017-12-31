@@ -40,7 +40,7 @@ It's really easy to set one up if you want to train a net on a GPU. Just run
     $ floyd init <project name>
     $ floyd --gpu 'python cnn-train.py' (or test.py or whatever)
     $ floyd logs -t <project id, it tells you what it is> ```
-You only start with 2 hours of GPU time, but it's really easy to create a new account if you know what I mean. ;)
+You only start with 2 hours of GPU time, but it's really easy to create a new account, if you know what I mean. ;)
 
 If you want to see something really cool, enter the command: 
 
