@@ -32,6 +32,16 @@ well), you'll see a performance rate at 99.4%-99.7% accuracy after 3 epochs with
 current parameters. When I used a dataset with twice as many images (260,000 training, 70,000 testing) and used 5 epochs,
 it yielded a model with ~99.9% accuracy.
 
+Early trainings took a while on my CPU, so I created a free FloydHub account: https://www.floydhub.com/joshpayne
+
+It's really easy to set one up if you want to train a net on a GPU. Just run
+
+``` $ floyd login
+    $ floyd init <project name>
+    $ floyd --gpu 'python cnn-train.py' (or test.py or whatever)
+    $ floyd logs -t <project id, it tells you what it is> ```
+You only start with 2 hours of GPU time, but it's really easy to create a new account if you know what I mean. ;)
+
 If you want to see something really cool, enter the command: 
 
 ``` $ tensorboard --logdir="model" ```
