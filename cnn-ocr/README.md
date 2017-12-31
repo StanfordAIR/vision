@@ -4,8 +4,7 @@
 
 This CNN has 4 layers:
 
-input layer -> first convolution layer : 5x5x32 -> first max-pooling layer -> second convolution layer : 5x5x64
--> second max-pooling layer -> third fully-connected layer : 1024 nodes -> output layer
+input layer -> first convolution layer : 5x5x32 -> first max-pooling layer -> second convolution layer : 5x5x64 -> second max-pooling layer -> third fully-connected layer : 1024 nodes -> output layer
 
 ## Training
 
