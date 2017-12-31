@@ -36,7 +36,7 @@ Early trainings took a while on my CPU, so I created a free FloydHub account: ht
 
 It's really easy to set one up if you want to train a net on a GPU. Just run
 
-``` $ floyd login ```
+``` $ floyd login ```<br />
 ``` $ floyd init <project name> ```
 ``` $ floyd --gpu 'python cnn-train.py' (or test.py or whatever) ```
 ``` $ floyd logs -t <project id, it tells you what it is> ```
