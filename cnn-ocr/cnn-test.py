@@ -25,13 +25,14 @@ from tensorflow.examples.tutorials.mnist import input_data
 
 import data
 import cnn_model
+import params as pm
 
 # user input
 from argparse import ArgumentParser
 
 # reference argument values
 MODEL_DIRECTORY = "model"
-TEST_BATCH_SIZE = 10000
+TEST_BATCH_SIZE = pm.testBatch
 ENSEMBLE = True
 
 # build parser
@@ -58,8 +59,8 @@ def test(model_directory, batch_size):
     is_training = tf.placeholder(tf.bool, name='MODE')
 
     # tf Graph input
-    x = tf.placeholder(tf.float32, [None, 784])
-    y_ = tf.placeholder(tf.float32, [None, 35])  # answer
+    x = tf.placeholder(tf.float32, [None, pm.imageArea])
+    y_ = tf.placeholder(tf.float32, [None, pm.nClasses])  # answer
     y = cnn_model.CNN(x, is_training=is_training)
 
     # Add ops to save and restore all the variables
@@ -101,8 +102,8 @@ def test_org(model_directory, batch_size):
     is_training = tf.placeholder(tf.bool, name='MODE')
 
     # tf Graph input
-    x = tf.placeholder(tf.float32, [None, 784])
-    y_ = tf.placeholder(tf.float32, [None, 35])  # answer
+    x = tf.placeholder(tf.float32, [None, pm.imageArea])
+    y_ = tf.placeholder(tf.float32, [None, pm.nClasses])  # answer
     y = cnn_model.CNN(x, is_training=is_training)
 
     # Add ops to save and restore all the variables
@@ -150,8 +151,8 @@ def test_ensemble(model_directory_list, batch_size):
     is_training = tf.placeholder(tf.bool, name='MODE')
 
     # tf Graph input
-    x = tf.placeholder(tf.float32, [None, 784])
-    y_ = tf.placeholder(tf.float32, [None, 35])  # answer
+    x = tf.placeholder(tf.float32, [None, pm.imageArea])
+    y_ = tf.placeholder(tf.float32, [None, pm.nClasses])  # answer
     y = cnn_model.CNN(x, is_training=is_training)
 
     # Add ops to save and restore all the variables

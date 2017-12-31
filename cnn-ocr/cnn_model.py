@@ -27,13 +27,15 @@ from __future__ import print_function
 import tensorflow as tf
 import tensorflow.contrib.slim as slim
 
+import params as pm
+
 # Create model of CNN with slim api
 def CNN(inputs, is_training=True):
     batch_norm_params = {'is_training': is_training, 'decay': 0.9, 'updates_collections': None}
     with slim.arg_scope([slim.conv2d, slim.fully_connected],
                         normalizer_fn=slim.batch_norm,
                         normalizer_params=batch_norm_params):
-        x = tf.reshape(inputs, [-1, 28, 28, 1])
+        x = tf.reshape(inputs, [-1, pm.imageSize, pm.imageSize, 1])
 
         # For slim.conv2d, default argument values are like
         # normalizer_fn = None, normalizer_params = None, <== slim.arg_scope changes these arguments
@@ -53,5 +55,5 @@ def CNN(inputs, is_training=True):
         # biases_initializer = init_ops.zeros_initializer,
         net = slim.fully_connected(net, 1024, scope='fc3')
         net = slim.dropout(net, is_training=is_training, scope='dropout3')  # 0.5 by default
-        outputs = slim.fully_connected(net, 35, activation_fn=None, normalizer_fn=None, scope='fco')
+        outputs = slim.fully_connected(net, pm.nClasses, activation_fn=None, normalizer_fn=None, scope='fco')
     return outputs

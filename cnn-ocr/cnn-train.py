@@ -29,19 +29,20 @@ import tensorflow.contrib.slim as slim
 
 import data
 import cnn_model
+import params as pm
 
 
 MODEL_DIRECTORY = "model/model.ckpt"
 LOGS_DIRECTORY = "logs/train"
 
 # Params for Train
-training_epochs = 2
-TRAIN_BATCH_SIZE = 100
-display_step = 100
-validation_step = 500
+training_epochs = pm.nEpochs
+TRAIN_BATCH_SIZE = pm.trainBatch
+display_step = pm.trainBatch
+validation_step = pm.valStep
 
 # Params for test
-TEST_BATCH_SIZE = 10000
+TEST_BATCH_SIZE = pm.testBatch
 
 def train():
 
@@ -56,8 +57,8 @@ def train():
     is_training = tf.placeholder(tf.bool, name='MODE')
 
     # tf Graph input
-    x = tf.placeholder(tf.float32, [None, 784])
-    y_ = tf.placeholder(tf.float32, [None, 35]) #answer
+    x = tf.placeholder(tf.float32, [None, pm.imageArea])
+    y_ = tf.placeholder(tf.float32, [None, pm.nClasses]) #answer
 
     # Predict
     y = cnn_model.CNN(x)
