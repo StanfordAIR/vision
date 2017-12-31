@@ -1,16 +1,11 @@
 # Convolutional Neural Network
 
-## Network architecture
+## Architecture
 
-CNN with 4 layers has following architecture.
+This CNN has 4 layers:
 
-+ input layer : 784 nodes (MNIST images size)
-+ first convolution layer : 5x5x32
-+ first max-pooling layer
-+ second convolution layer : 5x5x64
-+ second max-pooling layer
-+ third fully-connected layer : 1024 nodes
-+ output layer : 10 nodes (number of class for MNIST)
+input layer -> first convolution layer : 5x5x32 -> first max-pooling layer -> second convolution layer : 5x5x64
+-> second max-pooling layer -> third fully-connected layer : 1024 nodes ->output layer
 
 ## Training
 
@@ -34,5 +29,9 @@ once you have a trained model!
 ## Changing the input
 
 This net can be modified for different data input. To do so, edit the params.py file accordingly.
+
+This is based on work from the Tensorflow "Deep MNIST for Experts" (though I'm far from an expert!) - https://www.tensorflow.org/get_started/mnist/pros
+
+and GitHub user hualsuklee - https://github.com/hwalsuklee/tensorflow-mnist-cnn.
 
 JP
