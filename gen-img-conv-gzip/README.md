@@ -1,4 +1,4 @@
-# Image data augmenter, 3 -> 1 channels (grayscale), and gzip converter
+# Image data augmenter, RGB -> grayscale, and gzip converter
 
 generator.py takes in images from the training-template and test-template directories 
 and modifies them randomly, generating more data based on the parameters set in the ImageDataGenerator.
