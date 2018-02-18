@@ -95,8 +95,8 @@ def test(model_directory, batch_size):
 # test with test data given by mnist_data.py
 def test_org(model_directory, batch_size):
     # Import data
-    PIXEL_DEPTH = mnist_data.PIXEL_DEPTH
-    train_total_data, train_size, validation_data, validation_labels, test_data, test_labels = mnist_data.prepare_MNIST_data(
+    PIXEL_DEPTH = data.PIXEL_DEPTH
+    train_total_data, train_size, validation_data, validation_labels, test_data, test_labels = data.prepare_data(
         False)
 
     is_training = tf.placeholder(tf.bool, name='MODE')
@@ -145,7 +145,7 @@ def one_hot_matrix(a):
 # test with test data given by mnist_data.py
 def test_ensemble(model_directory_list, batch_size):
     # Import data
-    PIXEL_DEPTH = mnist_data.PIXEL_DEPTH
+    PIXEL_DEPTH = data.PIXEL_DEPTH
     mnist = input_data.read_data_sets('data/', one_hot=True)
 
     is_training = tf.placeholder(tf.bool, name='MODE')
@@ -180,6 +180,7 @@ def test_ensemble(model_directory_list, batch_size):
             saver.restore(sess, dir+'/model.ckpt')
             pred = sess.run(y, feed_dict={x: batch_xs, y_: batch_ys, is_training: False})
             y_final += one_hot_matrix(pred) # take a majority vote as an answer
+            print(y_final)
 
         correct_prediction = numpy.equal(numpy.argmax(y_final, 1), numpy.argmax(batch_ys, 1))
 

@@ -51,7 +51,7 @@ def train():
     num_labels = data.NUM_LABELS
 
     # Prepare mnist data
-    train_total_data, train_size, validation_data, validation_labels, test_data, test_labels = data.prepare_MNIST_data(True)
+    train_total_data, train_size, validation_data, validation_labels, test_data, test_labels = data.prepare_data(True)
 
     # Boolean for MODE of train or test
     is_training = tf.placeholder(tf.bool, name='MODE')
@@ -60,8 +60,18 @@ def train():
     x = tf.placeholder(tf.float32, [None, pm.imageArea])
     y_ = tf.placeholder(tf.float32, [None, pm.nClasses]) #answer
 
+    session = tf.Session()
+    x1 = tf.placeholder(tf.float32, shape=[None, 28,28,1], name='x')
+
+    ## labels
+    y_true = tf.placeholder(tf.float32, shape=[None, 35], name='y_true')
+    y_true_cls = tf.argmax(y_true, dimension=1, name='prediction')
+
+
     # Predict
-    y = cnn_model.CNN(x)
+    y = cnn_model.CNN(x, y_true)
+
+    session.run(tf.global_variables_initializer())
 
     # Get loss of model
     with tf.name_scope("LOSS"):
@@ -101,6 +111,7 @@ def train():
     # Add ops to save and restore all the variables
     saver = tf.train.Saver()
     sess = tf.InteractiveSession()
+    
     sess.run(tf.global_variables_initializer(), feed_dict={is_training: True})
 
     # Training cycle
