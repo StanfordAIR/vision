@@ -15,7 +15,7 @@ camera = cv2.VideoCapture(0)
 while True:
 	# grab the current frame and initialize the status text
 	(grab, frame) = camera.read()
-	status = "No Targets"
+	status = "no squares"
 
 	# check to see if we have reached the end of the
 	# video
@@ -57,7 +57,7 @@ while True:
 				# draw an outline around the target and update the status
 				# text
 				cv2.drawContours(frame, [approx], -1, (0, 0, 255), 4)
-				status = "Target(s) Acquired"
+				status = "found square"
 
 				# compute the center of the contour region and draw the
 				# crosshairs
