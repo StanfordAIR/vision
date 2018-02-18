@@ -52,18 +52,20 @@ python npcon.py --image <"filename(s)"> --output <"filename(s)"> --batch <True/F
 
 The output should look similar to below:
 ```
+DN0a22b616:predict-cnn joshpayne1$ saved_model_cli run --dir ./vs/1518944297 --tag_set serve --signature_def classify --inputs image=images0.npy
+2018-02-18 02:19:48.188603: I tensorflow/core/platform/cpu_feature_guard.cc:137] Your CPU supports instructions that this TensorFlow binary was not compiled to use: SSE4.2 AVX AVX2 FMA
 Result for output key classes:
-[18]
+[22]
 Result for output key probabilities:
-[[   1.31863635e-11    3.33160255e-03    4.68393943e-12    2.98903392e-14
-     3.79172548e-07    5.66412202e-15    9.20220983e-20    8.91677772e-08
-     7.29750449e-21    1.97541377e-20    3.05716397e-10    1.51980155e-25
-     6.33949171e-10    7.35050245e-14    7.62496785e-21    2.95526190e-12
-     4.06706855e-21    5.01199837e-09    9.96323705e-01 <- 1.25076656e-06
-     1.01232147e-13    9.77554373e-05    3.27998338e-21    7.84026316e-12
-     1.61107881e-11    1.56545326e-15    1.30687398e-21    5.33742734e-26
-     1.72068582e-07    1.35641665e-10    2.08529087e-07    1.49046433e-23
-     1.35477490e-10    2.44773808e-04    6.13433748e-11]]
+[[  3.29756364e-15   0.00000000e+00   6.79246181e-15   4.03374295e-16
+    2.42251444e-18   1.01116413e-12   3.60628519e-12   0.00000000e+00
+    2.15181956e-07   1.01725094e-10   4.70693721e-16   2.39584679e-05
+    7.23152370e-32   3.33596926e-19   6.36450947e-10   5.00806389e-23
+    2.87304880e-12   2.21608163e-14   0.00000000e+00   3.28333207e-36
+    2.62940423e-14   0.00000000e+00   9.99950409e-01 < 1.37660379e-07
+    6.71888345e-16   6.79457653e-18   7.18531179e-10   2.12818954e-08
+    0.00000000e+00   1.17662371e-19   2.56622176e-18   2.52274021e-05
+    1.03750249e-21   3.21115301e-37   1.17415666e-13]]
 ```
 
 After 12 epochs our augmented 35 class dataset (2000 instances of each class), evaluation accuracy was around ~96%. Predictions were generally good, but some weren't. Likely needs a better dataset.
