@@ -1,3 +1,4 @@
+
 # Based off work done by hualsuklee - https://github.com/hwalsuklee/tensorflow-mnist-cnn
 
 # Used as an object to set up the neural network.
@@ -30,7 +31,7 @@ import tensorflow.contrib.slim as slim
 import params as pm
 
 # Create model of CNN with slim api
-def CNN(inputs, is_training=True):
+def CNN(inputs, y_true, is_training=True):
     batch_norm_params = {'is_training': is_training, 'decay': 0.9, 'updates_collections': None}
     with slim.arg_scope([slim.conv2d, slim.fully_connected],
                         normalizer_fn=slim.batch_norm,
@@ -56,4 +57,7 @@ def CNN(inputs, is_training=True):
         net = slim.fully_connected(net, 1024, scope='fc3')
         net = slim.dropout(net, is_training=is_training, scope='dropout3')  # 0.5 by default
         outputs = slim.fully_connected(net, pm.nClasses, activation_fn=None, normalizer_fn=None, scope='fco')
+        y_pred = tf.nn.softmax(outputs,name='y_pred')
+        cross_entropy = tf.nn.softmax_cross_entropy_with_logits(logits=outputs,
+                                                    labels=y_true)
     return outputs
