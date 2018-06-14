@@ -2,13 +2,8 @@
 
 ## Guidelines
 
-Make a separate folder for the system you are developing. For example, I placed my orientation recognition algorithm in orientation/. Within the folder, include a readme that'll point to the main script to call to use whatever component of our vision system you've implemented, and any other information you think other's on the team should have.
+To contribute, fork this repository with the 'fork' button at the upper right part of the page and clone it locally (`$ git clone https://github.com/<your username>/vision.git`). You should then see a folder hierarchy identical to the one seen here on GitHub. 
 
-## Contributing
+To add your new functional feature here (features in beta should be pushed to vision-playground), add the folder to your local vision repository. The folder's name should reflect the function of your feature (e.g. orientation, cnn) you are developing. Within the folder, include a README.md that gives a quick description, command line or import instuctions for use, as well as any other information you think others on the team should have. If you've used code from another repository, be sure to cite it so that we can inculde it in the final writeup if need be. 
 
-First, fork this repository into your own account, then clone the fork to your desktop using 
-``` $ git clone "url" ```.
-Once you've done this, you can add/edit files on your master or dev branches. Once you're ready, commit the changes, push, and open a pull request. If you have 'write' access, you'll be able to merge the changes to the vision:master branch, and if not, just ask someone who does for it. (Or just ask for us to pull the changes.) 
-
-Happy hacking!
-
+Once you've added your feature, add the changes using `$ git add .`, commit the changes with a commit message using `$ git commit -m "<your message>"`, and push the changes using `$ git push`. Hop back onto GitHub and navigate to your forked repository (github.com/<your username>/vision). There, you should see that you've pushed your changes and be able to create a pull request. Once you've done this, one of us (or you, if you're an admin!) will evaluate and merge it. Congrats, you're a contributor now!

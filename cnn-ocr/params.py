@@ -3,14 +3,14 @@
 nClasses = 35
 imageSize = 28
 imageArea = 784
-validationSize = 10000
-trainBatch = 100
-testBatch = 10000
-valStep = 500
+validationSize = 500
+trainBatch = 25
+testBatch = 500
+valStep = 50
 
-nEpochs = 2
+nEpochs = 3
 
-nTrainData = 140000
-nTestData = 35000
+nTrainData = 7000
+nTestData = 1750
 
 expandPrintRate = 1000

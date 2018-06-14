@@ -121,8 +121,8 @@ def expend_training_data(images, labels):
 
     return expanded_train_total_data
 
-# Prepare MNISt data
-def prepare_MNIST_data(use_data_augmentation=True):
+# Prepare data
+def prepare_data(use_data_augmentation=True):
     # Get the data.
     train_data_filename = maybe_download('train-images-idx3-ubyte.gz')
     train_labels_filename = maybe_download('train-labels-idx1-ubyte.gz')
